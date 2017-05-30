@@ -14,7 +14,7 @@ public class Quadro {
 	private String tecnica;
 	@Column(nullable=false)
 	private String dimensione;
-	@ManyToOne(fetch=FetchType.EAGER)
+	@ManyToOne(fetch=FetchType.EAGER,cascade=CascadeType.PERSIST)
 	private Autore autore;
 	
 	public Quadro() {

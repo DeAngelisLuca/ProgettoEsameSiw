@@ -20,7 +20,7 @@ public class Autore {
 	@Column(nullable=false)
 	@Temporal(TemporalType.DATE)
 	private Date dataMorte;
-	@OneToMany(mappedBy="autore",fetch=FetchType.LAZY)
+	@OneToMany(mappedBy="autore",fetch=FetchType.LAZY,cascade=CascadeType.PERSIST)
 	List<Quadro> quadri;
 
 	public Autore() {
