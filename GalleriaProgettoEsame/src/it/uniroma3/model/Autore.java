@@ -15,10 +15,12 @@ public class Autore {
 	@Column(nullable=false)
 	private String nazionalita;
 	@Column(nullable=false)
+	@Temporal(TemporalType.DATE)
 	private Date dataNascita;
 	@Column(nullable=false)
+	@Temporal(TemporalType.DATE)
 	private Date dataMorte;
-	@OneToMany(mappedBy="autore")
+	@OneToMany(mappedBy="autore",fetch=FetchType.LAZY)
 	List<Quadro> quadri;
 
 	public Autore() {
