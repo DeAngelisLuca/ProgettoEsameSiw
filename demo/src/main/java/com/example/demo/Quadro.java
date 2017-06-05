@@ -1,9 +1,5 @@
 package com.example.demo;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,34 +7,25 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-
-import it.uniroma3.model.Quadro;
+import javax.persistence.ManyToOne;
 
 @Entity
-public class Autore {
+public class Quadro {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	@Column(nullable=false)
-	private String nome;
+	private String titolo;
 	@Column(nullable=false)
-	private String cognome;
+	private Integer annoRealizzazione;
 	@Column(nullable=false)
-	private String nazionalita;
+	private String tecnica;
 	@Column(nullable=false)
-	@Temporal(TemporalType.DATE)
-	private Date dataNascita;
-	@Column(nullable=false)
-	@Temporal(TemporalType.DATE)
-	private Date dataMorte;
-	@OneToMany(mappedBy="autore",fetch=FetchType.LAZY,cascade=CascadeType.PERSIST)
-	List<Quadro> quadri;
-
-	public Autore() {
-		this.quadri = new ArrayList<>();
+	private String dimensione;
+	@ManyToOne(fetch=FetchType.EAGER,cascade=CascadeType.PERSIST)
+	private Autore autore;
+	
+	public Quadro() {
 	}
 
 	public Long getId() {
@@ -49,52 +36,45 @@ public class Autore {
 		this.id = id;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getTitolo() {
+		return titolo;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setTitolo(String titolo) {
+		this.titolo = titolo;
 	}
 
-	public String getCognome() {
-		return cognome;
+	public Integer getAnnoRealizzazione() {
+		return annoRealizzazione;
 	}
 
-	public void setCognome(String cognome) {
-		this.cognome = cognome;
+	public void setAnnoRealizzazione(Integer annoRealizzazione) {
+		this.annoRealizzazione = annoRealizzazione;
 	}
 
-	public String getNazionalita() {
-		return nazionalita;
+	public String getTecnica() {
+		return tecnica;
 	}
 
-	public void setNazionalita(String nazionalita) {
-		this.nazionalita = nazionalita;
+	public void setTecnica(String tecnica) {
+		this.tecnica = tecnica;
 	}
 
-	public Date getDataNascita() {
-		return dataNascita;
+	public String getDimensione() {
+		return dimensione;
 	}
 
-	public void setDataNascita(Date dataNascita) {
-		this.dataNascita = dataNascita;
+	public void setDimensione(String dimensione) {
+		this.dimensione = dimensione;
 	}
 
-	public Date getDataMorte() {
-		return dataMorte;
+	public Autore getAutore() {
+		return autore;
 	}
 
-	public void setDataMorte(Date dataMorte) {
-		this.dataMorte = dataMorte;
+	public void setAutore(Autore autore) {
+		this.autore = autore;
 	}
-
-	public List<Quadro> getQuadri() {
-		return quadri;
-	}
-
-	public void setQuadri(List<Quadro> quadri) {
-		this.quadri = quadri;
-	}
+	
 
 }
