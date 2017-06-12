@@ -1,4 +1,4 @@
-package it.uniroma3.spring.model;
+package it.uniroma3.model;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 
