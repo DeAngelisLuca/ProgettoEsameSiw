@@ -13,6 +13,6 @@ public interface AutoreRepository extends CrudRepository<Autore, Long> {
   
   Autore findByCognome(String cognome);
   
-  Autore findByOpere(List<Quadro> quadri);
+//  Autore findByOpere(List<Quadro> quadri);
   
 }

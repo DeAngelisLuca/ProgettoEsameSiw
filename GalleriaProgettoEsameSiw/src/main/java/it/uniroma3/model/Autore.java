@@ -17,6 +17,7 @@ public class Autore {
 	private String cognome;
 	
 	@NotNull
+	
 	private String nazionalita;
 	
 	@NotNull
